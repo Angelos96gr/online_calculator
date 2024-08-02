@@ -4,10 +4,12 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <script src="jquery-3.7.1.js"></script>
     
     <style>
 
+    .calculator {
+        display:grid
+    }
     .calc_row{ 
         display: flex;
         justify-content: center;
@@ -40,31 +42,31 @@
     <div style="border: 1px solid black; border-radius: 10px; background: linear-gradient(#bbb0b0, #9198e5);">
 
         <div class="calc_row">
-            <button id="operator">+</button>
-            <button id="operator">-</button>
-            <button id="operator">*</button>
-            <button id="operator">/</button>
+            <button class="operator">+</button>
+            <button class="operator">-</button>
+            <button class="operator">*</button>
+            <button class="operator">/</button>
         </div>
         <div class="calc_row">
-            <button id="num">1</button>
-            <button id="num">2</button>
-            <button id="num">3</button>
-            <button id="num">.</button>
+            <button class="num">1</button>
+            <button class="num">2</button>
+            <button class="num">3</button>
+            <button class="num">.</button>
             
         </div> 
         <div class="calc_row">
             
-            <button id="num">4</button>
-            <button id="num">5</button>
-            <button id="num">6</button>
-            <button id="operator" value="=">=</button>
+            <button class="num">4</button>
+            <button class="num">5</button>
+            <button class="num">6</button>
+            <button class="operator" value="=">=</button>
                 
         </div>
         <div class="calc_row">
-            <button id="num" value="">7</button>
-            <button id="num">8</button>
-            <button id="num">9</button>
-            <button id="num">0</button>
+            <button class="num" value="">7</button>
+            <button class="num">8</button>
+            <button class="num">9</button>
+            <button class="num">0</button>
         </div>
 
         <div class="calc_row">
@@ -82,7 +84,7 @@
         <label style="width: 200px; height: 30px; text-align: center; padding-top: 20px;">Result</label>
     </div>
     <div class="calc_row">
-        <div id="result" style="border: 1px solid black; width: 250px; height: 50px; text-align: center; border-radius: 10px;"></div>
+        <div id="result_text_box" style="border: 1px solid black; width: 250px; height: 50px; text-align: center; border-radius: 10px;"></div>
     </div>
 
 <script src="calculator.js"></script>
