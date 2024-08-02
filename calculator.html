@@ -4,90 +4,86 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
 
-    .calculator {
-        display:grid
-    }
-    .calc_row{ 
-        display: flex;
-        justify-content: center;
-        margin: 10px;
+        .calculator {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            width: 30%;
+            gap: 1px 1px;
+            aspect-ratio: 1;
 
-    }
+        }
 
-    button{
 
-        width: 50px;
-        height: 50px;
-        margin: 5px;
-        border-radius: 10px;
-    }
+        button {
+            background-color: rgb(126, 127, 156);
+            border: 1px;
+            border-radius: 5px;
+            font-size: 20px;
 
+        }
+
+        button:active {
+            background-color: #849284;
+            box-shadow: 0 5px #666;
+            border: 1px;
+        }
+
+
+        #display_text_box {
+            display: flex;
+            width: 30%;
+            min-height: 31.5px;
+            justify-content: center;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 20px;
+        }
     </style>
 </head>
 
 <body>
+    <h4>Online Calculator</h4>
 
-    <div class="calc_row">
-    Online Calculator
-    </div>
-    <div style="display: flex; justify-content: center;">
-        <div id="display_text_box" style=" border: 1px solid black; width: 260px; height: 40px; text-align: center; border-radius: 10px; "></div>
-    </div>
+    <div class="calculator">
+        <button class="operator">+</button>
+        <button class="operator">-</button>
+        <button class="operator">*</button>
+        <button class="operator">/</button>
+        <button class="num">1</button>
+        <button class="num">2</button>
+        <button class="num">3</button>
+        <button class="num">.</button>
+        <button class="num">4</button>
+        <button class="num">5</button>
+        <button class="num">6</button>
+        <button class="operator" value="=">=</button>
+        <button class="num" value="">7</button>
+        <button class="num">8</button>
+        <button class="num">9</button>
+        <button class="num">0</button>
+        <button id="backspace" style="grid-column: span 2;">Backspace</button>
+        <button id="clear" style="grid-column: span 2;">Clear</button>
 
-    <div style="display: flex; justify-content: center;">
-
-    <div style="border: 1px solid black; border-radius: 10px; background: linear-gradient(#bbb0b0, #9198e5);">
-
-        <div class="calc_row">
-            <button class="operator">+</button>
-            <button class="operator">-</button>
-            <button class="operator">*</button>
-            <button class="operator">/</button>
-        </div>
-        <div class="calc_row">
-            <button class="num">1</button>
-            <button class="num">2</button>
-            <button class="num">3</button>
-            <button class="num">.</button>
-            
-        </div> 
-        <div class="calc_row">
-            
-            <button class="num">4</button>
-            <button class="num">5</button>
-            <button class="num">6</button>
-            <button class="operator" value="=">=</button>
-                
-        </div>
-        <div class="calc_row">
-            <button class="num" value="">7</button>
-            <button class="num">8</button>
-            <button class="num">9</button>
-            <button class="num">0</button>
-        </div>
-
-        <div class="calc_row">
-            <button id="backspace" style="width: 100px;height: 50px;margin: 5px;border-radius: 10px;">Backspace</button>
-            <button id="clear" style="width: 100px;height: 50px;margin: 5px;border-radius: 10px;">Clear</button>
-
-        </div>
     </div>
 
-</div>
+    <div id="display_text_box"></div>
+    <div id="wrong_expression_message" style="visibility: hidden; color: rgb(172, 109, 109);">You must have typed
+        something incorrectly</div>
 
 
 
-    <div class="calc_row">       
-        <label style="width: 200px; height: 30px; text-align: center; padding-top: 20px;">Result</label>
-    </div>
-    <div class="calc_row">
-        <div id="result_text_box" style="border: 1px solid black; width: 250px; height: 50px; text-align: center; border-radius: 10px;"></div>
-    </div>
 
-<script src="calculator.js"></script>
-
+    <script src="calculator.js"></script>
 </body>
+
 </html>

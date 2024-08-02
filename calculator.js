@@ -1,35 +1,40 @@
 const display_text_box = document.querySelector("#display_text_box")
-const result_text_box = document.querySelector("#result_text_box")
-const all_buttons = document.getElementsByTagName("button");
+const all_buttons = document.querySelectorAll("button");
+const wrong_expression_message = document.querySelector("#wrong_expression_message")
 
 function add_event_listeners() {
 
     for (let button of all_buttons) {
         if (button.textContent === "=") {
             button.addEventListener("click", (e) => {
-                result_text_box.textContent = eval(display_text_box.textContent)
+                try{
+                    display_text_box.textContent = eval(display_text_box.textContent)
+                    wrong_expression_message.style.visibility = "hidden"
+
+                    
+                }catch(error){
+                    console.log("Evaluation could not be performed")
+                    wrong_expression_message.style.visibility = "visible"
+                }
             })
 
         } else if (button.textContent === "Clear") {
             button.addEventListener("click", (e) => {
                 display_text_box.textContent = ""
+                wrong_expression_message.style.visibility = "hidden"
 
             })
 
         } else if (button.textContent === "Backspace") {
             button.addEventListener("click", (e) => {
                 display_text_box.textContent = display_text_box.textContent.slice(0, -1)
-            })
-
-        } else if (button.className == "operator") {
-            button.addEventListener("click", (e) => {
-                console.log("operator clicked")
-                display_text_box.textContent = display_text_box.textContent + " " + button.textContent + " "
+                wrong_expression_message.style.visibility = "hidden"
             })
         }
         else {
             button.addEventListener("click", (e) => {
                 display_text_box.textContent = display_text_box.textContent + button.textContent
+                wrong_expression_message.style.visibility = "hidden"
             })
         }
     }
@@ -42,12 +47,12 @@ function compute(expression) {
 
     // The hard way and does not account for operator precedence
 
-    let breakdown_result_text_box = text.split(" ")
+    let breakdown_display_text_box = text.split(" ")
     let num_list = [];
     let operators_list = [];
     let result;
 
-    for (let item of breakdown_result_text_box) {
+    for (let item of breakdown_display_text_box) {
         console.log(item)
         if (Number(item) == item) {
             num_list.push(item)
